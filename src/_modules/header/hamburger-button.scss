@@ -1,0 +1,128 @@
+/* =============================================================================
+  MENU TOGGLE SWITCHES
+============================================================================= */
+
+// vars
+
+$button-width:              30px;
+$button-height:             30px;
+$bar-thickness:             3px;
+$button-pad:                4px;
+$button-trans-delay:        0.3s;
+$color-lines:               #E54646;
+$color-closed:              transparent;
+$color-open:                transparent;
+/**
+ * Toggle Switch Globals
+ *
+ * All switches should take on the class `hamburger-button` as well as their
+ * variant that will give them unique properties. This class is an overview
+ * class that acts as a reset for all versions of the icon.
+ */
+
+.hamburger-button {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $button-width;
+  height: $button-height;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background $button-trans-delay;
+}
+
+.hamburger-button:focus {
+  outline: none;
+}
+
+.hamburger-button span {
+  display: block;
+  position: absolute;
+  top: ($button-height / 2) - ($bar-thickness / 2);
+  left: $button-pad;
+  right: $button-pad;
+  height: $bar-thickness;
+  background: $color-lines;
+}
+
+.hamburger-button span::before,
+.hamburger-button span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: $bar-thickness;
+  background-color: $color-lines;
+  content: "";
+}
+
+.hamburger-button span::before {
+  top: -(($button-height / 2) - ($bar-thickness / 2) - $button-pad);
+}
+
+.hamburger-button span::after {
+  bottom: -(($button-height / 2) - ($bar-thickness / 2) - $button-pad);
+}
+
+/**
+ * Style 
+ * 
+ * Hamburger to "x" (htx). Takes on a hamburger shape, bars slide
+ * down to center and transform into an "x".
+ */
+
+.hamburger-button_htx {
+  background-color: $color-closed;
+}
+
+.hamburger-button_htx span {
+  transition: background 0 $button-trans-delay;
+}
+
+.hamburger-button_htx span::before,
+.hamburger-button_htx span::after {
+  transition-duration: $button-trans-delay, $button-trans-delay;
+  transition-delay: $button-trans-delay, 0;
+}
+
+.hamburger-button_htx span::before {
+  transition-property: top, transform;
+}
+
+.hamburger-button_htx span::after {
+  transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+
+.hamburger-button_htx.active {
+  background-color: $color-open;
+}
+
+.hamburger-button_htx.active span {
+  background: none;
+}
+
+.hamburger-button_htx.active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.hamburger-button_htx.active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.hamburger-button_htx.active span::before,
+.hamburger-button_htx.active span::after {
+  transition-delay: 0, $button-trans-delay;
+}

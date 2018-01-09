@@ -1,0 +1,93 @@
+@media screen and (max-width:1280px)
+	.nav
+		display: flex
+		flex-direction: row
+		align-items: center
+		padding: 0
+		&__li
+			list-style: none
+			margin-left: 60px
+			color: #4B4B4B
+			cursor: pointer
+			font-size: 16px
+			font-weight: 700 
+			&:hover
+				color: #E54646
+			&.active
+				color: #E54646
+	.container
+		width: 980px
+	.slick-prev
+		left: -15px
+	.slick-next
+		right: -15px
+	.slider__img
+		right: 10px
+	.slider__text
+		left: 20px
+
+@media screen and (max-width:1024px)
+	.container
+		width: 740px
+	.slick-prev
+		left: -10px
+	.slick-next
+		right: -10px
+	.slider__img
+		right: 10%
+	.slider__text
+		width: 100px
+		left: calc(50% - 100px)
+		top: 70%
+	.slider__title
+		display: none
+	.logo
+		position: relative
+		bottom: 10px
+		&__img
+			width: 50%
+	.hamburger-button
+		display: block
+	.nav
+		display: none
+		z-index: 500
+		width: 100%
+		margin: 0
+		position: absolute
+		left: 0
+		top: 100%
+		flex-direction: column
+		background: white
+		&__li
+			text-align: right
+			max-width: 740px 
+			margin: 0 auto
+			padding: 5px 10px
+			border-bottom: 1px solid rgba(black, .2)
+			&:first-child
+				border-top: 1px solid rgba(black, .2)
+@media screen and (max-width:768px)
+	.container
+		width: 100%
+	.slick-prev
+		left: 10px
+	.slick-next
+		right: 10px
+	.slick-prev, .slick-next
+		display: none
+	.slider__img
+		width: 80%
+		top: 0
+
+@media screen and (max-width:620px)
+	.slider
+		height: 600px
+	.slider__slide
+		height: 660px
+
+
+@media screen and (max-width:480px)
+	.slider__img
+		width: 100%
+		right: 0
+
